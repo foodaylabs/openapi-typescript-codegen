@@ -2,7 +2,7 @@ import { HttpClient } from '../HttpClient';
 
 /**
  * Generate the HttpRequest filename based on the selected client
- * @param httpClient The selected httpClient (fetch, xhr, node or axios)
+ * @param httpClient The selected httpClient (fetch, xhr, node, axios or nextjs)
  */
 export const getHttpRequestName = (httpClient: HttpClient): string => {
     switch (httpClient) {

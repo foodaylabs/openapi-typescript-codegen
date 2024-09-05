@@ -14,7 +14,7 @@ import type { Templates } from './registerHandlebarTemplates';
  * @param client Client object, containing, models, schemas and services
  * @param templates The loaded handlebar templates
  * @param outputPath Directory to write the generated files to
- * @param httpClient The selected httpClient (fetch, xhr, node or axios)
+ * @param httpClient The selected httpClient (fetch, xhr, node, axios or nextjs)
  * @param indent Indentation options (4, 2 or tab)
  * @param clientName Custom client class name
  * @param request Path to custom request file

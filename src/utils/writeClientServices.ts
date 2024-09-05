@@ -14,7 +14,7 @@ import type { Templates } from './registerHandlebarTemplates';
  * @param services Array of Services to write
  * @param templates The loaded handlebar templates
  * @param outputPath Directory to write the generated files to
- * @param httpClient The selected httpClient (fetch, xhr, node or axios)
+ * @param httpClient The selected httpClient (fetch, xhr, node, axios or nextjs)
  * @param useUnionTypes Use union types instead of enums
  * @param useOptions Use options or arguments functions
  * @param indent Indentation options (4, 2 or tab)

@@ -38,6 +38,8 @@ import functionIsStringWithValue from '../templates/core/functions/isStringWithV
 import functionIsSuccess from '../templates/core/functions/isSuccess.hbs';
 import functionResolve from '../templates/core/functions/resolve.hbs';
 import templateCoreHttpRequest from '../templates/core/HttpRequest.hbs';
+import nextjsRequest from '../templates/core/nextjs/request.hbs';
+import nextjsSendRequest from '../templates/core/nextjs/sendRequest.hbs';
 import nodeGetHeaders from '../templates/core/node/getHeaders.hbs';
 import nodeGetRequestBody from '../templates/core/node/getRequestBody.hbs';
 import nodeGetResponseBody from '../templates/core/node/getResponseBody.hbs';
@@ -187,6 +189,10 @@ export const registerHandlebarTemplates = (root: {
     Handlebars.registerPartial('fetch/getResponseHeader', Handlebars.template(fetchGetResponseHeader));
     Handlebars.registerPartial('fetch/sendRequest', Handlebars.template(fetchSendRequest));
     Handlebars.registerPartial('fetch/request', Handlebars.template(fetchRequest));
+
+    // Specific files for the nextjs client implementation
+    Handlebars.registerPartial('nextjs/sendRequest', Handlebars.template(nextjsSendRequest));
+    Handlebars.registerPartial('nextjs/request', Handlebars.template(nextjsRequest));
 
     // Specific files for the xhr client implementation
     Handlebars.registerPartial('xhr/getHeaders', Handlebars.template(xhrGetHeaders));
