@@ -1,7 +1,5 @@
 {{>header}}
 
-import { ClientOptions } from './core/{{{httpRequest}}}';
-
 {{#equals @root.httpClient 'angular'}}
 {{#if @root.exportClient}}
 import { Injectable } from '@angular/core';
@@ -24,9 +22,9 @@ import type { CancelablePromise } from '../core/CancelablePromise';
 {{/notEquals}}
 {{#if @root.exportClient}}
 {{#equals @root.httpClient 'angular'}}
-import { BaseHttpRequest } from '../core/BaseHttpRequest';
+import { BaseHttpRequest, ClientOptions } from '../core/BaseHttpRequest';
 {{else}}
-import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+import type { BaseHttpRequest, ClientOptions } from '../core/BaseHttpRequest';
 {{/equals}}
 {{else}}
 import { OpenAPI } from '../core/OpenAPI';

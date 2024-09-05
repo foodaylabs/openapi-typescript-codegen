@@ -1,5 +1,8 @@
 {{>header}}
 
+import { ClientOptions } from './core/{{{httpRequest}}}';
+export type { ClientOptions } from './core/{{{httpRequest}}}';
+
 {{#equals @root.httpClient 'angular'}}
 import type { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
@@ -24,8 +27,8 @@ export abstract class BaseHttpRequest {
 	{{/equals}}
 
 	{{#equals @root.httpClient 'angular'}}
-	public abstract request<T>(options: ApiRequestOptions): Observable<T>;
+	public abstract request<T>(options: ApiRequestOptions<ClientOptions>): Observable<T>;
 	{{else}}
-	public abstract request<T>(options: ApiRequestOptions): CancelablePromise<T>;
+	public abstract request<T>(options: ApiRequestOptions<ClientOptions>): CancelablePromise<T>;
 	{{/equals}}
 }
