@@ -54,7 +54,7 @@ import type { OpenAPIConfig } from './OpenAPI';
 
 {{>functions/catchErrorCodes}}
 
-interface ClientOptions {
+export interface ClientOptions {
 	cache?: 'force-cache' | 'no-store';
 	next?: {
 		revalidate?: false | number;

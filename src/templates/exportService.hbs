@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 {{/if}}
 
+import { ClientOptions } from './core/{{{httpRequest}}}';
+
 {{/equals}}
 {{#if imports}}
 {{#each imports}}
@@ -72,18 +74,18 @@ export class {{{name}}}{{{@root.postfix}}} {
 	 */
 	{{#if @root.exportClient}}
 	{{#equals @root.httpClient 'angular'}}
-	public {{{name}}}({{>parameters}}): Observable<{{>result}}> {
+	public {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): Observable<{{>result}}> {
 		return this.httpRequest.request({
 	{{else}}
-	public {{{name}}}({{>parameters}}): CancelablePromise<{{>result}}> {
+	public {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): CancelablePromise<{{>result}}> {
 		return this.httpRequest.request({
 	{{/equals}}
 	{{else}}
 	{{#equals @root.httpClient 'angular'}}
-	public {{{name}}}({{>parameters}}): Observable<{{>result}}> {
+	public {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): Observable<{{>result}}> {
 		return __request(OpenAPI, this.http, {
 	{{else}}
-	public static {{{name}}}({{>parameters}}): CancelablePromise<{{>result}}> {
+	public static {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): CancelablePromise<{{>result}}> {
 		return __request(OpenAPI, {
 	{{/equals}}
 	{{/if}}
@@ -144,6 +146,7 @@ export class {{{name}}}{{{@root.postfix}}} {
 				{{{code}}}: `{{{escapeDescription description}}}`,
 				{{/each}}
 			},
+			clientOptions,
 			{{/if}}
 		});
 	}

@@ -9,13 +9,15 @@ import type { ApiRequestOptions } from './ApiRequestOptions';
 import { BaseHttpRequest } from './BaseHttpRequest';
 import type { OpenAPIConfig } from './OpenAPI';
 import { OpenAPI } from './OpenAPI';
-import { request as __request } from './request';
+import { request as __request, ClientOptions } from './request';
+export type { ClientOptions } from './request';
 {{else}}
 import type { ApiRequestOptions } from './ApiRequestOptions';
 import { BaseHttpRequest } from './BaseHttpRequest';
 import type { CancelablePromise } from './CancelablePromise';
 import type { OpenAPIConfig } from './OpenAPI';
-import { request as __request } from './request';
+import { request as __request, ClientOptions } from './request';
+export type { ClientOptions } from './request';
 {{/equals}}
 
 {{#equals @root.httpClient 'angular'}}
@@ -44,7 +46,7 @@ export class {{httpRequest}} extends BaseHttpRequest {
 	 * @returns Observable<T>
 	 * @throws ApiError
 	 */
-	public override request<T>(options: ApiRequestOptions): Observable<T> {
+	public override request<T>(options: ApiRequestOptions<ClientOptions>): Observable<T> {
 		return __request(this.config, this.http, options);
 	}
 	{{else}}
