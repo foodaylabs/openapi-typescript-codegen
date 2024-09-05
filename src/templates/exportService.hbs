@@ -72,18 +72,18 @@ export class {{{name}}}{{{@root.postfix}}} {
 	 */
 	{{#if @root.exportClient}}
 	{{#equals @root.httpClient 'angular'}}
-	public {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): Observable<{{>result}}> {
+	public {{{name}}}({{>parameters}}{{#if parameters}}, {{/if}}clientOptions?: ClientOptions): Observable<{{>result}}> {
 		return this.httpRequest.request({
 	{{else}}
-	public {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): CancelablePromise<{{>result}}> {
+	public {{{name}}}({{>parameters}}{{#if parameters}}, {{/if}}clientOptions?: ClientOptions): CancelablePromise<{{>result}}> {
 		return this.httpRequest.request({
 	{{/equals}}
 	{{else}}
 	{{#equals @root.httpClient 'angular'}}
-	public {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): Observable<{{>result}}> {
+	public {{{name}}}({{>parameters}}{{#if parameters}}, {{/if}}clientOptions?: ClientOptions): Observable<{{>result}}> {
 		return __request(OpenAPI, this.http, {
 	{{else}}
-	public static {{{name}}}({{>parameters}}, clientOptions?: ClientOptions): CancelablePromise<{{>result}}> {
+	public static {{{name}}}({{>parameters}}{{#if parameters}}, {{/if}}clientOptions?: ClientOptions): CancelablePromise<{{>result}}> {
 		return __request(OpenAPI, {
 	{{/equals}}
 	{{/if}}
@@ -144,8 +144,8 @@ export class {{{name}}}{{{@root.postfix}}} {
 				{{{code}}}: `{{{escapeDescription description}}}`,
 				{{/each}}
 			},
-			clientOptions,
 			{{/if}}
+			clientOptions,
 		});
 	}
 
