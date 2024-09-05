@@ -1,7 +1,7 @@
 {{>header}}
 
-import { ClientOptions } from './core/{{{httpRequest}}}';
-export type { ClientOptions } from './core/{{{httpRequest}}}';
+import { ClientOptions } from './{{{httpRequest}}}';
+export type { ClientOptions } from './{{{httpRequest}}}';
 
 {{#equals @root.httpClient 'angular'}}
 import type { HttpClient } from '@angular/common/http';
